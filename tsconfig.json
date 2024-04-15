@@ -11,7 +11,7 @@
      "useUnknownInCatchVariables": false,               /* Default catch clause variables as 'unknown' instead of 'any'. */
     "skipLibCheck": true,  /* Skip type checking all .d.ts files. */
     "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
-    //"moduleResolution": "node",
+    //"moduleResolution": "node16",
     "removeComments": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
