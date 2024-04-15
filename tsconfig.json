@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "NodeNext",                                /* Specify what module code is generated. */
+     "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+     "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+     "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+     "useUnknownInCatchVariables": false,               /* Default catch clause variables as 'unknown' instead of 'any'. */
+    "skipLibCheck": true,  /* Skip type checking all .d.ts files. */
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    //"moduleResolution": "node",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts"]
+}
