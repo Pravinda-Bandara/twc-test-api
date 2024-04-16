@@ -1,6 +1,6 @@
 import { prop, Ref, getModelForClass } from '@typegoose/typegoose';
 // @ts-ignore
-import { User } from './user.ts';
+import { User } from './user.js';
 
 export enum Gender {
     MALE = "male",

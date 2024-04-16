@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import * as process from "process";
 import userRoutes from "./routes/userRoutes.js";
+import contactRoutes from "./routes/contactRouts.js";
 
 const app = express();
 dotenv.config()
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/contacts', contactRoutes);
 
 
 const PORT = process.env.PORT || 5050;
