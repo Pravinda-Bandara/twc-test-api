@@ -5,9 +5,9 @@ const contactRoutes = express.Router();
 
 
 contactRoutes.post('/', saveContact);
-contactRoutes.get('/:userid', getContacts);
-contactRoutes.delete('/:contactid', deleteContact);
-contactRoutes.patch('/:contactid', updateContact);
+contactRoutes.get('/:id', getContacts);
+contactRoutes.delete('/:id', deleteContact);
+contactRoutes.patch('/:id', updateContact);
 
 
 export default contactRoutes;

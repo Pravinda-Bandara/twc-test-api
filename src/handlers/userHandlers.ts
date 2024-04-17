@@ -27,13 +27,15 @@ export const userRegister = async (req: express.Request, res: express.Response) 
         const newUser = new UserModel({ userName, userPassword: userHashPassword });
         await newUser.save();
 
-        return res.status(201).json({ message: 'User registered successfully', userName });
+        // Respond with user ID only
+        return res.status(201).json({ userId: newUser._id });
 
     } catch (error) {
         console.error('Error registering user:', error);
         return res.status(500).json({ error: 'Internal server error' });
     }
 };
+
 
 // User Login Endpoint
 export const userLogin = async (req: express.Request, res: express.Response) => {
@@ -52,10 +54,11 @@ export const userLogin = async (req: express.Request, res: express.Response) => 
         const passwordValidation = await comparePasswords(userPassword, existingUser.userPassword);
 
         if (!passwordValidation) {
-            return res.status(400).json({ error: 'Entered password is not valid' });
+            return  res.status(401).send({ message: 'Invalid email or password' })
         }
 
-        return res.status(200).json({ message: 'User logged in successfully', userName });
+        // Respond with user ID only
+        return res.status(200).json({ userId: existingUser._id });
 
     } catch (error) {
         console.error('Error logging in user:', error);
