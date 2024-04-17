@@ -26,8 +26,15 @@ export const saveContact = async (req: express.Request, res: express.Response) =
         const contact = await ContactModel.create(contactDetail);
 
         if (!contact) return res.status(400).json({ message: 'Failed to save contact' });
+        const saveContactResponse={
+            _id: contact._id,
+            number: contact.number,
+            name: contact.name,
+            email: contact.email,
+            gender: contact.gender
+        }
 
-        return res.status(201).json({ message: 'Contact saved successfully', contact });
+        return res.status(201).json(saveContactResponse);
 
     } catch (error) {
         console.error('Error saving contact:', error);
@@ -71,7 +78,7 @@ export const deleteContact = async (req: express.Request, res: express.Response)
             return res.status(404).json({ message: 'Contact not found' });
         }
 
-        return res.status(200).json({ message: 'Contact deleted successfully', deletedContact });
+        return res.status(200).json({ message: 'Contact deleted successfully' });
 
     } catch (error) {
         console.error('Error deleting contact:', error);
