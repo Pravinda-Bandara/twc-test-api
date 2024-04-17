@@ -38,7 +38,7 @@ export const saveContact = async (req: express.Request, res: express.Response) =
 
     } catch (error) {
         console.error('Error saving contact:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 }
 
@@ -63,7 +63,7 @@ export const getContacts = async (req: express.Request, res: express.Response) =
 
     } catch (error) {
         console.error('Error fetching contacts:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 }
 
@@ -77,12 +77,11 @@ export const deleteContact = async (req: express.Request, res: express.Response)
         if (!deletedContact) {
             return res.status(404).json({ message: 'Contact not found' });
         }
-
         return res.status(200).json({ message: 'Contact deleted successfully' });
 
     } catch (error) {
         console.error('Error deleting contact:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 }
 
@@ -97,11 +96,18 @@ export const updateContact = async (req: express.Request, res: express.Response)
         if (!updatedContact) {
             return res.status(404).json({ message: 'Contact not found' });
         }
+        const updateContactResponse={
+            _id: updatedContact._id,
+            number: updatedContact.number,
+            name: updatedContact.name,
+            email: updatedContact.email,
+            gender: updatedContact.gender
+        }
 
-        return res.status(200).json({ message: 'Contact updated successfully', updatedContact });
+        return res.status(200).json({ updateContactResponse });
 
     } catch (error) {
         console.error('Error updating contact:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 }

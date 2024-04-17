@@ -17,7 +17,7 @@ export const userRegister = async (req: express.Request, res: express.Response) 
         const existingUser = await UserModel.findOne({ userName });
 
         if (existingUser) {
-            return res.status(400).json({ error: 'Username already exists' });
+            return res.status(400).json({ message: 'Username already exists' });
         }
 
         // Hashing password
@@ -32,7 +32,7 @@ export const userRegister = async (req: express.Request, res: express.Response) 
 
     } catch (error) {
         console.error('Error registering user:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 };
 
@@ -47,7 +47,7 @@ export const userLogin = async (req: express.Request, res: express.Response) => 
         const existingUser = await UserModel.findOne({ userName });
 
         if (!existingUser) {
-            return res.status(400).json({ error: `User with username ${userName} does not exist` });
+            return res.status(400).json({ message: `User with username ${userName} does not exist` });
         }
 
         // Check password validity
@@ -62,6 +62,6 @@ export const userLogin = async (req: express.Request, res: express.Response) => 
 
     } catch (error) {
         console.error('Error logging in user:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error' });
     }
 };
