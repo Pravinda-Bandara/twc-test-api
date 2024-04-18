@@ -1,7 +1,7 @@
 import express from 'express';
 import { UserModel } from "../models/user.js";
 import { hashPassword, comparePasswords } from '../utils/passwordUtils.js';
-import {validateUserInput} from "../utils/ValidationUserInput.js";
+import {validateUserInput} from "../utils/UserValidationUtil.js";
 
 interface UserRegisterRequest {
     userName: string;
