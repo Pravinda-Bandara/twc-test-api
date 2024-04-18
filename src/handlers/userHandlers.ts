@@ -2,11 +2,9 @@ import express from 'express';
 import { UserModel } from "../models/user.js";
 import { hashPassword, comparePasswords } from '../utils/passwordUtils.js';
 import {validateUserInput} from "../utils/UserValidationUtil.js";
+import {UserRegisterRequest} from "../types/userTypes.js";
 
-interface UserRegisterRequest {
-    userName: string;
-    userPassword: string;
-}
+
 
 // User Registration Endpoint
 export const userRegister = async (req: express.Request, res: express.Response) => {

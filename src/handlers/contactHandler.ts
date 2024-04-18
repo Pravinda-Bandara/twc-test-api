@@ -1,23 +1,9 @@
 import express from 'express';
-import { Gender, ContactModel } from '../models/contact.js';
-import mongoose from 'mongoose';
+import { ContactModel } from '../models/contact.js';
+
 import {ContactValidationUtil} from "../utils/ContactValidationUtil.js";
+import {ContactRequest, ContactResponse} from "../types/contactTypes.js";
 
-export interface ContactRequest {
-    number: string;
-    name: string;
-    email: string;
-    gender: Gender;
-    user: string;
-}
-
-export interface ContactResponse {
-    _id: mongoose.Types.ObjectId | undefined;
-    number: string;
-    name: string;
-    email: string;
-    gender: Gender;
-}
 
 // Function to save a new contact
 export const saveContact = async (req: express.Request, res: express.Response) => {
