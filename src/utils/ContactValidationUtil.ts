@@ -1,5 +1,7 @@
 // Function to validate contact details
-import {ContactRequest} from "../handlers/contactHandler.js";
+
+
+import {ContactRequest} from "../types/contactTypes.js";
 
 export const ContactValidationUtil = (contact: ContactRequest): string | null => {
     const { name, email, number, gender } = contact;
